@@ -7,7 +7,9 @@
         "start": "node .",
         "dev": "ts-node-dev src/server.ts",
         "lint": "eslint",
-        "prettier": "prettier --config .prettierrc --write ."
+        "prettier": "prettier --config .prettierrc --write .",
+        "prepare": "npm run prettier && npm run lint && npm run build",
+        "migrations": "npx ts-node -r tsconfig-paths/register ./node_modules/sequelize-cli/lib/sequelize db:migrate"
     },
     "keywords": [],
     "author": {
@@ -32,7 +34,9 @@
         "express": "4.21.0",
         "reflect-metadata": "^0.2.2",
         "sequelize": "^6.37.3",
+        "sequelize-cli": "^6.6.2",
         "sequelize-typescript": "^2.1.6",
-        "sqlite3": "5.1.7"
+        "sqlite3": "5.1.7",
+        "tsconfig-paths": "^4.2.0"
     }
 }
