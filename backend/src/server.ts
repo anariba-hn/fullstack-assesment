@@ -5,7 +5,7 @@ dotenv.config({ path: path.resolve(__dirname, '../.env') });
 import AppConfig from './config/appConfig';
 import { Server } from 'net';
 import express from 'express';
-import { dbConnection } from './config/dbConnection';
+import dbConnection from './config/dbConnection';
 
 async function initServer(config: typeof AppConfig.server): Promise<Server> {
     try {
