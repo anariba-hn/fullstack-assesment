@@ -1,0 +1,24 @@
+@startuml dbSchema
+
+entity Employee {
+  * id : INTEGER <<PK>>
+  * firstName : STRING
+  * lastName : STRING
+  * hireDate : DATE
+  * phone : NUMBER
+  * address : STRING
+  * departmentId : INTEGER <<FK>>
+  * createdAt : DATE
+  * updatedAt : DATE
+}
+
+entity Department {
+  * id : INTEGER <<PK>>
+  * name : STRING
+  * createdAt : DATE
+  * updatedAt : DATE
+}
+
+Employee }|--|| Department : "belongs to"
+
+@enduml
