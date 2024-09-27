@@ -1,6 +1,3 @@
-import dotenv from 'dotenv';
-dotenv.config();
-
 /*
  ** Configuration provider file for sequelize to work with migrations
  */
