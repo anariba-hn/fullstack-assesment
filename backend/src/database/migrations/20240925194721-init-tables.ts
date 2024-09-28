@@ -56,9 +56,7 @@ export default {
                     model: 'Departments',
                     key: 'id'
                 },
-                allowNull: false,
-                onDelete: 'CASCADE',
-                onUpdate: 'CASCADE'
+                allowNull: false
             },
             createdAt: {
                 type: DataTypes.DATE,

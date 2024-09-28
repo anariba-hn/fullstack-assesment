@@ -4,7 +4,9 @@ import {
     HasMany,
     Table,
     CreatedAt,
-    UpdatedAt
+    UpdatedAt,
+    PrimaryKey,
+    AutoIncrement
 } from 'sequelize-typescript';
 import { Employee } from './Employee';
 import { Optional } from 'sequelize';
@@ -20,11 +22,16 @@ export class Department
     extends Model<IDepartmentAttributes, DepartmentDTO>
     implements IDepartmentAttributes
 {
+    @PrimaryKey
+    @AutoIncrement
+    @Column
+    id!: number;
+
     @Column
     name!: string;
 
     @HasMany(() => Employee)
-    employees?: Employee[];
+    employees!: Employee[];
 
     @CreatedAt
     @Column

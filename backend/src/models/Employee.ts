@@ -6,7 +6,8 @@ import {
     BelongsTo,
     Table,
     CreatedAt,
-    UpdatedAt
+    UpdatedAt,
+    AutoIncrement
 } from 'sequelize-typescript';
 import { Department } from './Department';
 import { Optional } from 'sequelize';
@@ -29,6 +30,7 @@ export class Employee
     implements IEmployeeAttributes
 {
     @PrimaryKey
+    @AutoIncrement
     @Column
     id!: number;
 

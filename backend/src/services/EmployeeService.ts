@@ -18,13 +18,13 @@ class EmployeeService implements IEmployeeService {
 
     async getAllEmployees(): Promise<Employee[] | null> {
         return await Employee.findAll({
-            include: [Department.name]
+            include: [Department]
         });
     }
 
     async getEmployeeById(id: number): Promise<Employee | null> {
         return await Employee.findByPk(id, {
-            include: [Department.name]
+            include: [Department]
         });
     }
 
