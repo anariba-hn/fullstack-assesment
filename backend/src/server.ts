@@ -9,7 +9,7 @@ import dbConnection from './config/dbConnection';
 
 async function initServer(config: typeof AppConfig.server): Promise<Server> {
     try {
-        await dbConnection.authenticate();
+        await dbConnection.sync({ force: false });
         const app = initApp();
         console.log('Connection has been established successfully.');
         return app.listen(config.port, () =>

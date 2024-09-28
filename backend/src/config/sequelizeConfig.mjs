@@ -1,3 +1,6 @@
+import dotenv from 'dotenv';
+dotenv.config();
+
 /*
  ** Configuration provider file for sequelize to work with migrations
  */
@@ -8,7 +11,7 @@ const config = {
         username: process.env.DB_USER,
         password: process.env.DB_PASSWORD,
         port: process.env.DB_PORT || 5432,
-        dialect: process.env.DB_DIALECT || 'sqlite'
+        dialect: process.env.DB_DIALECT || 'mysql'
     },
     //This could match different values for production propose
     production: {}

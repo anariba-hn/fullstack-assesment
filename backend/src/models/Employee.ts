@@ -2,15 +2,36 @@ import {
     Model,
     Column,
     ForeignKey,
+    PrimaryKey,
     BelongsTo,
     Table,
     CreatedAt,
     UpdatedAt
 } from 'sequelize-typescript';
 import { Department } from './Department';
+import { Optional } from 'sequelize';
+
+export interface IEmployeeAttributes {
+    id: number;
+    departmentId: number;
+    firstName: string;
+    lastName: string;
+    hireDate: Date;
+    phone: string;
+    address: string;
+}
+
+export type EmployeeDTO = Optional<IEmployeeAttributes, 'id'>;
 
 @Table
-export class Employee extends Model<Employee> {
+export class Employee
+    extends Model<IEmployeeAttributes, EmployeeDTO>
+    implements IEmployeeAttributes
+{
+    @PrimaryKey
+    @Column
+    id!: number;
+
     @ForeignKey(() => Department)
     @Column
     departmentId!: number;
@@ -28,7 +49,7 @@ export class Employee extends Model<Employee> {
     hireDate!: Date;
 
     @Column
-    phone!: number;
+    phone!: string;
 
     @Column
     address!: string;
