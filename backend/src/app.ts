@@ -3,6 +3,7 @@ import { Application } from 'express';
 import cors from 'cors';
 import bodyParser from 'body-parser';
 import morgan from 'morgan';
+import routes from './routes';
 
 const environment = process.env.NODE_ENV?.toString();
 
@@ -24,6 +25,7 @@ function initApp(): Application {
             message: 'healthy'
         });
     });
+    app.use('/api', routes);
 
     return app;
 }
