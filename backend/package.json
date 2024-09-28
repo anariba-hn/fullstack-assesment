@@ -5,11 +5,12 @@
     "scripts": {
         "build": "tsc",
         "start": "node .",
-        "dev": "ts-node-dev src/server.ts",
+        "dev": "ts-node-dev src/server.ts --inspect-brk",
         "lint": "eslint",
         "prettier": "prettier --config .prettierrc --write .",
         "prepare": "npm run prettier && npm run lint && npm run build",
-        "migrations": "npx ts-node -r tsconfig-paths/register ./node_modules/sequelize-cli/lib/sequelize db:migrate"
+        "migrations": "npx ts-node -r tsconfig-paths/register ./node_modules/sequelize-cli/lib/sequelize db:migrate",
+        "seeds": "npx ts-node -r tsconfig-paths/register ./node_modules/sequelize-cli/lib/sequelize db:seed:all"
     },
     "keywords": [],
     "author": {
@@ -38,11 +39,11 @@
         "dotenv": "^16.4.5",
         "express": "4.21.0",
         "morgan": "^1.10.0",
+        "mysql2": "^3.11.3",
         "reflect-metadata": "^0.2.2",
         "sequelize": "^6.37.3",
         "sequelize-cli": "^6.6.2",
         "sequelize-typescript": "^2.1.6",
-        "sqlite3": "5.1.7",
         "tsconfig-paths": "^4.2.0"
     }
 }
