@@ -2,7 +2,29 @@ import { QueryInterface, DataTypes } from 'sequelize';
 
 export default {
     up: async (queryInterface: QueryInterface) => {
-        await queryInterface.createTable('Employee', {
+        await queryInterface.createTable('Departments', {
+            id: {
+                type: DataTypes.INTEGER,
+                autoIncrement: true,
+                primaryKey: true
+            },
+            name: {
+                type: DataTypes.STRING,
+                allowNull: false
+            },
+            createdAt: {
+                type: DataTypes.DATE,
+                allowNull: false,
+                defaultValue: DataTypes.NOW
+            },
+            updatedAt: {
+                type: DataTypes.DATE,
+                allowNull: false,
+                defaultValue: DataTypes.NOW
+            }
+        });
+
+        await queryInterface.createTable('Employees', {
             id: {
                 type: DataTypes.INTEGER,
                 autoIncrement: true,
@@ -21,7 +43,7 @@ export default {
                 allowNull: false
             },
             phone: {
-                type: DataTypes.NUMBER,
+                type: DataTypes.STRING,
                 allowNull: false
             },
             address: {
@@ -31,38 +53,22 @@ export default {
             departmentId: {
                 type: DataTypes.INTEGER,
                 references: {
-                    model: 'Department',
+                    model: 'Departments',
                     key: 'id'
                 },
-                allowNull: false
+                allowNull: false,
+                onDelete: 'CASCADE',
+                onUpdate: 'CASCADE'
             },
             createdAt: {
                 type: DataTypes.DATE,
-                allowNull: false
+                allowNull: false,
+                defaultValue: DataTypes.NOW
             },
             updatedAt: {
                 type: DataTypes.DATE,
-                allowNull: false
-            }
-        });
-
-        await queryInterface.createTable('Department', {
-            id: {
-                type: DataTypes.INTEGER,
-                autoIncrement: true,
-                primaryKey: true
-            },
-            name: {
-                type: DataTypes.STRING,
-                allowNull: false
-            },
-            createdAt: {
-                type: DataTypes.DATE,
-                allowNull: false
-            },
-            updatedAt: {
-                type: DataTypes.DATE,
-                allowNull: false
+                allowNull: false,
+                defaultValue: DataTypes.NOW
             }
         });
     },
