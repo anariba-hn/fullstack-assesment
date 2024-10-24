@@ -7,7 +7,7 @@ export interface IDepartment {
 
 export interface IEmployee {
     id: number;
-    departmentId: number;
+    department: IDepartment;
     firstName: string;
     lastName: string;
     hireDate: Date;
