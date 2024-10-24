@@ -13,6 +13,10 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
+#root {
+    width: 80%;
+}
+
 a {
     font-weight: 500;
     color: #646cff;
@@ -24,6 +28,7 @@ a:hover {
 
 body {
     margin: 0;
+    width: 100%;
     display: flex;
     place-items: center;
     min-width: 320px;
@@ -65,4 +70,46 @@ button:focus-visible {
     button {
         background-color: #f9f9f9;
     }
+}
+
+/* EmployeeComponent */
+ul {
+    list-style-type: none;
+}
+
+li {
+    padding-bottom: 10px;
+}
+
+.employeeListContainer {
+    align-items: center;
+    display: flex;
+    text-align: justify;
+    justify-content: space-around;
+    padding: 5px 0 5px 0;
+    border: solid 1px lightgray;
+    border-radius: 10px;
+}
+
+.employeeListContainer img {
+    background-color: #81dddd;
+    width: 10vh;
+    height: 10vh;
+}
+
+.employeeData {
+    display: block;
+}
+
+.employeeData p {
+    margin: 0;
+}
+
+aside {
+    display: flex;
+    justify-content: space-between;
+}
+
+aside button {
+    margin: 0px 4px 0px 4px;
 }
