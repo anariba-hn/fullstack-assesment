@@ -113,3 +113,13 @@ aside {
 aside button {
     margin: 0px 4px 0px 4px;
 }
+
+.btnDetails {
+    background-color: #91d568;
+    color: #f0f9ec;
+}
+
+.btnDelete {
+    color: red;
+    background-color: transparent;
+}

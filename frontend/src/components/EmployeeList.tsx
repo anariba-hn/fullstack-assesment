@@ -1,5 +1,6 @@
 import React from 'react';
 import useEmployees from '../hooks/useEmployees';
+import { formatHireDate } from '../utils/formatHireDate';
 
 const EmployeeList: React.FC = () => {
     const { employees, loading, error } = useEmployees();
@@ -19,11 +20,11 @@ const EmployeeList: React.FC = () => {
                                 {employee.department.name} )
                             </strong>
                             <p>Hire Date</p>
-                            {employee.hireDate.toString()}
+                            {formatHireDate(employee.hireDate)}
                         </div>
                         <aside>
-                            <button>View Details</button>
-                            <button>x</button>
+                            <button className="btnDetails">View Details</button>
+                            <button className="btnDelete">x</button>
                         </aside>
                     </div>
                 </li>
