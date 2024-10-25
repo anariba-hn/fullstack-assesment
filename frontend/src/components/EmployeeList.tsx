@@ -1,12 +1,19 @@
 import React from 'react';
-import useEmployees from '../hooks/useEmployees';
 import { formatHireDate } from '../utils/formatHireDate';
+import { IEmployee } from '../types';
 
-const EmployeeList: React.FC = () => {
-    const { employees, loading, error } = useEmployees();
+interface IEmployeeListProps {
+    employees: IEmployee[];
+    loading: boolean;
+    onRemove: (id: number) => void;
+}
 
+const EmployeeList: React.FC<IEmployeeListProps> = ({
+    employees,
+    loading,
+    onRemove
+}) => {
     if (loading) return <div>Loading...</div>;
-    if (error) return <div>Error: {error}</div>;
 
     return (
         <ul>
@@ -24,7 +31,12 @@ const EmployeeList: React.FC = () => {
                         </div>
                         <aside>
                             <button className="btnDetails">View Details</button>
-                            <button className="btnDelete">x</button>
+                            <button
+                                className="btnDelete"
+                                onClick={() => onRemove(employee.id)}
+                            >
+                                &times;
+                            </button>
                         </aside>
                     </div>
                 </li>
