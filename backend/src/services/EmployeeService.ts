@@ -13,7 +13,10 @@ class EmployeeService implements IEmployeeService {
     constructor() {}
 
     async createEmployee(payload: EmployeeDTO): Promise<Employee> {
-        return await Employee.create(payload);
+        const newEmployee = await Employee.create(payload);
+        return (await Employee.findByPk(newEmployee.id, {
+            include: [Department]
+        })) as Employee;
     }
 
     async getAllEmployees(): Promise<Employee[] | null> {
