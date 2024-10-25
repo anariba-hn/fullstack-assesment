@@ -17,4 +17,9 @@ export interface IEmployee {
     updatedAt?: Date;
 }
 
-export type EmployeeDTO = Omit<IEmployee, 'id' | 'createdAt' | 'updatedAt'>;
+export type EmployeeDTO = Omit<
+    IEmployee,
+    'id' | 'department' | 'createAt' | 'updateAt'
+> & {
+    departmentId: number;
+};

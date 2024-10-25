@@ -10,7 +10,7 @@ export const getAllEmployees = async (): Promise<IEmployee[]> => {
 };
 
 export const createEmployee = async (
-    employee: Omit<IEmployee, 'id'>
+    employee: EmployeeDTO
 ): Promise<IEmployee> => {
     const response = await axios.post(`${API_URL}/employee`, employee);
     return response.data.data;
