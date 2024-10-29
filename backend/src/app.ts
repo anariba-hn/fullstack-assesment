@@ -18,7 +18,9 @@ function initApp(): Application {
     app.use(bodyParser.urlencoded({ extended: false }));
     app.use(bodyParser.json());
 
-    if (environment?.includes('dev') || environment?.includes('development')) app.use(morgan('dev'));
+    if (environment?.includes('dev') || environment?.includes('development')) {
+        app.use(morgan('dev'));
+    }
 
     app.get('/health-check', (_req, res) => {
         res.status(200).json({
