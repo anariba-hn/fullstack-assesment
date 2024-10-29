@@ -5,7 +5,7 @@ export interface IEmployeeService {
     createEmployee(payload: EmployeeDTO): Promise<Employee>;
     getAllEmployees(): Promise<Employee[] | null>;
     getEmployeeById(id: number): Promise<Employee | null>;
-    updateEmployee(payload: EmployeeDTO): Promise<boolean>;
+    updateEmployee(payload: Partial<EmployeeDTO>): Promise<boolean>;
     deleteEmployee(id: number): Promise<boolean>;
 }
 
@@ -31,7 +31,7 @@ class EmployeeService implements IEmployeeService {
         });
     }
 
-    async updateEmployee(payload: EmployeeDTO): Promise<boolean> {
+    async updateEmployee(payload: Partial<EmployeeDTO>): Promise<boolean> {
         const [updatedEmployee] = await Employee.update(payload, {
             where: {
                 id: payload.id

@@ -88,28 +88,21 @@ class EmployeeController {
         next: NextFunction
     ): Promise<void> {
         try {
-            const {
-                id,
-                firstName,
-                lastName,
-                phone,
-                hireDate,
-                address,
-                departmentId
-            } = req.body;
+            const { id, departmentId, status } = req.body;
 
-            const dto: EmployeeDTO = {
+            const dto: Partial<EmployeeDTO> = {
                 id,
-                firstName,
-                lastName,
-                phone,
-                hireDate,
-                address,
-                departmentId
+                departmentId,
+                status
             };
 
-            await this._service.updateEmployee(dto);
-            res.send(204).send({ message: 'employee updated successfully' });
+            const resp = await this._service.updateEmployee(dto);
+
+            if (resp) {
+                res.sendStatus(204);
+            } else {
+                res.status(404).send({ message: 'employee not found' });
+            }
         } catch (error) {
             console.log(`an error occurs on updateEmployee controller \n
             error: ${error}`);
