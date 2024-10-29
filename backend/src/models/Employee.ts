@@ -7,7 +7,9 @@ import {
     Table,
     CreatedAt,
     UpdatedAt,
-    AutoIncrement
+    AutoIncrement,
+    Default,
+    DataType
 } from 'sequelize-typescript';
 import { Department } from './Department';
 import { Optional } from 'sequelize';
@@ -20,6 +22,7 @@ export interface IEmployeeAttributes {
     hireDate: Date;
     phone: string;
     address: string;
+    status?: boolean;
 }
 
 export type EmployeeDTO = Optional<IEmployeeAttributes, 'id'>;
@@ -55,6 +58,10 @@ export class Employee
 
     @Column
     address!: string;
+
+    @Default(true)
+    @Column(DataType.BOOLEAN)
+    status?: boolean;
 
     @CreatedAt
     @Column
