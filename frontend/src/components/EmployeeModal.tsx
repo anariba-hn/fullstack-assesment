@@ -18,7 +18,7 @@ const NewEmployeeModal: React.FC<INewEmployeeModalProps> = ({
         phone: '',
         address: '',
         hireDate: new Date(),
-        departmentId: 0
+        departmentId: 1
     });
 
     if (!open) return null;

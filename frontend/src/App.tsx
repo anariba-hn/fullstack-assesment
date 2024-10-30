@@ -24,7 +24,11 @@ const App: React.FC = () => {
 
     return (
         <div className="main-container">
-            <button className="btnNewEmployee" onClick={handleOpenModel}>
+            <button
+                className="btnNewEmployee"
+                onClick={handleOpenModel}
+                disabled={!!error || !!loading}
+            >
                 New Employee
             </button>
 
