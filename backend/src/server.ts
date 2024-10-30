@@ -1,9 +1,9 @@
 import dotenv from 'dotenv';
-import path from 'path';
+import path from 'node:path';
 dotenv.config({ path: path.resolve(__dirname, '../.env') });
 
 import AppConfig from './config/appConfig';
-import { Server } from 'net';
+import { Server } from 'node:net';
 import initApp from './app';
 import dbConnection from './config/dbConnection';
 

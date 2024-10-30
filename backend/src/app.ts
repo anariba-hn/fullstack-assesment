@@ -1,5 +1,4 @@
-import express from 'express';
-import { Application } from 'express';
+import express, { Application } from 'express';
 import cors from 'cors';
 import bodyParser from 'body-parser';
 import morgan from 'morgan';
