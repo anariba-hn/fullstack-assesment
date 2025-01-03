@@ -10,7 +10,7 @@ NodeJS web service using Sequelize ORM for database modeling, including seeders 
 
 ### Documentation
 
-[Diagram distributed system with plantUML](https://git.number8.com/dennis.anariba/fullstack-assessment/src/branch/main/backend/src/diagram/db_schema.png)
+[Diagram distributed system with plantUML](https://github.com/anariba-hn/fullstack-assesment/blob/main/backend/src/diagram/db_schema.png)
 
 ---
 
@@ -27,7 +27,7 @@ _Otherwise copy the file directly_
 
 Spin up your database service, for this example we are using a Mysql dialect over an Apache engine.
 
-Run the next sql script to [DATABASE CREATION](https://git.number8.com/dennis.anariba/fullstack-assessment.git)
+Run the next sql script to [DATABASE CREATION](https://github.com/anariba-hn/fullstack-assesment/blob/main/backend/src/database/sql/createDb.sql)
 
 Package install
 
